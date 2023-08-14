@@ -3,3 +3,45 @@ Objectives:
 1. Create a Lambda function to count the number of words in a text file.
 2. Configure an Amazon Simple Storage Service (Amazon S3) bucket to invoke a Lambda function when a text file is uploaded to the S3 bucket.
 3. Create an Amazon Simple Notification Service (Amazon SNS) topic to report the word count in an email.
+
+steps are as follows:
+A. Create a Lambda function to count the number of words in a text file 
+    1. Use the AWS Management Console to develop a Lambda function in Python and create the function's required resources.
+    2.Report the word count in an email by using an SNS topic. Optionally, also send the result in an SMS (text) message.
+    3. Format the response message as follows:
+          The word count in the <textFileName> file is nnn. 
+          Replace <textFileName> with the name of the file.
+    4. Enter the following text as the email subject: Word Count Result
+          Automatically invoke the function when the text file is uploaded to an S3 bucket.
+
+B. Test the function by uploading a few sample text files with different word counts to the S3 bucket.
+
+C. Forward the email that one of your tests produces and a screenshot of your Lambda function to your instructor.
+
+ 
+
+Hints:
+
+> Create all of your resources in the same AWS Region.
+> You need an AWS Identity and Access Management (IAM) role for the Lambda function to access other AWS services. Because the lab policy does not permit the creation of an IAM role, use the LambdaAccessRole role. The LambdaAccessRole role provides the following permissions:
+
+AWSLambdaBasicExecutionRole
+This is an AWS managed policy that provides write permissions to Amazon CloudWatch Logs.
+
+AmazonSNSFullAccess
+This is an AWS managed policy that provides full access to Amazon SNS via the AWS Management Console.
+
+AmazonS3FullAccess
+This is an AWS managed policy that provides full access to all buckets via the AWS Management Console.
+
+CloudWatchFullAccess
+This is an AWS managed policy that provides full access to Amazon CloudWatch.
+
+
+
+Conclusion:
+> Created a Lambda function to count the number of words in a text file
+> Configured an S3 bucket to invoke a Lambda function when a text file is uploaded to the S3 bucket
+> Created an Amazon SNS topic to report the word count in an email
+
+ 
